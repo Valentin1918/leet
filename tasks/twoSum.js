@@ -26,4 +26,42 @@ const twoSum_2 = (nums, target) => {
   return repl;
 };
 
-module.exports = {twoSum_1, twoSum_2};
+const twoSum_3 = (nums, target) => {
+  const numsMap = nums.reduce((acc, num, i) => {
+    if (!acc.get(num)) {
+      acc.set(num, [i]);
+    } else {
+      acc.set(num, acc.get(num).concat(i));
+    }
+    return acc;
+  }, new Map());
+  for (let key of numsMap.keys()) {
+    const val2 = numsMap.get(target - key);
+    const equal = 2*key === target;
+    if (equal && val2.length > 1) return [val2[0], val2[1]];
+    if (equal) continue;
+    if (val2 && val2[0] >= 0) return [numsMap.get(key)[0], val2[0]];
+  }
+};
+
+const twoSum_4 = (nums, target) => {
+  const numsMap = nums.reduce((acc, num, i) => {
+    if (!acc[num]) {
+      acc[num] = [i];
+    } else {
+      acc[num].push(i);
+    }
+    return acc;
+  }, {});
+  const keys = Object.keys(numsMap);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const val2 = numsMap[target - key];
+    const equal = 2*key === target;
+    if (equal && val2.length > 1) return [val2[0], val2[1]];
+    if (equal) continue;
+    if (val2 && val2[0] >= 0) return [numsMap[key][0], val2[0]];
+  }
+};
+
+module.exports = {twoSum_1, twoSum_2, twoSum_3, twoSum_4};
