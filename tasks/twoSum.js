@@ -64,4 +64,18 @@ const twoSum_4 = (nums, target) => {
   }
 };
 
-module.exports = {twoSum_1, twoSum_2, twoSum_3, twoSum_4};
+const twoSum_5 = (nums, target) => {
+  const numsMap = {};
+  for (let i = 0; i < nums.length; i++) {
+    const val2 = numsMap[target - nums[i]];
+    if (val2) return [val2[0], i];
+
+    if (!numsMap[nums[i]]) {
+      numsMap[nums[i]] = [i];
+    } else {
+      numsMap[nums[i]].push(i);
+    }
+  }
+};
+
+module.exports = {twoSum_1, twoSum_2, twoSum_3, twoSum_4, twoSum_5};
