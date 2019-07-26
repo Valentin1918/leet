@@ -16,14 +16,24 @@ const twoSum_2 = (nums, target) => {
   let repl, i, y;
   main: for (i = 0; i < nums.length; i++) {
     const val = nums[i];
-    inner: for (y = i + 1; y < nums.length; y++) {
+    for (y = i + 1; y < nums.length; y++) {
       if ((val + nums[y]) === target) {
         repl = [i, y];
         break main;
-      };
+      }
     }
   }
   return repl;
+};
+
+const twoSum_2_1 = (nums, target) => {
+  let i, y;
+  for (i = 0; i < nums.length; i++) {
+    const val = nums[i];
+    for (y = i + 1; y < nums.length; y++) {
+      if ((val + nums[y]) === target) return [i, y];
+    }
+  }
 };
 
 const twoSum_3 = (nums, target) => {
@@ -77,5 +87,16 @@ const twoSum_5 = (nums, target) => {
     }
   }
 };
+
+const twoSum_6 = (nums, target) => {
+  for (let i = 0; i < nums.length; i++) {
+    const val = target - nums[i];
+    nums[i] = undefined;
+    const ind = nums.indexOf(val);
+    if (ind !== -1) return [i, ind];
+    nums[i] = target - val;
+  }
+};
+
 
 module.exports = {twoSum_1, twoSum_2, twoSum_3, twoSum_4, twoSum_5};
