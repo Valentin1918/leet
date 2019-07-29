@@ -98,5 +98,15 @@ const twoSum_6 = (nums, target) => {
   }
 };
 
+// faster
+const twoSum_7 = (nums, target) => {
+  const hashMap = {};
+  for (let i = 0; i < nums.length; i++) {
+    const tmp = target - nums[i];
+    if (typeof hashMap[tmp] === 'number') return [hashMap[tmp], i];
+    hashMap[nums[i]] = i;
+  }
+};
+
 
 module.exports = {twoSum_1, twoSum_2, twoSum_3, twoSum_4, twoSum_5};
