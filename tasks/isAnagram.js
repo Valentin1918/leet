@@ -38,5 +38,10 @@ const isAnagram_3 = (s, t) => {
   return !Object.keys(repl).length;
 };
 
+const isAnagram_4 = (s, t) => {
+  if (s.length !== t.length) return false;
+  return s.split('').sort().join() === t.split('').sort().join();
+};
 
-module.exports = { isAnagram_1, isAnagram_2, isAnagram_3 };
+
+module.exports = { isAnagram_1, isAnagram_2, isAnagram_3, isAnagram_4 };
