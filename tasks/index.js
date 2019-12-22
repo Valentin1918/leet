@@ -2,6 +2,7 @@ const { twoSum_1, twoSum_2, twoSum_3, twoSum_4, twoSum_5 } = require('./twoSum')
 const { bubbleSort, gnomeSort, insertionSort } = require('./sorting');
 const { isAnagram_1, isAnagram_2, isAnagram_3, isAnagram_4 } = require('./isAnagram');
 const { Singleton_1, Singleton_2, Ext_Sin_2 } = require('./singleton');
+const { curry_0, curry_1, curry_2 } = require('./curry');
 
 // const makeArr = n => Array.from({length: n}, () => Math.floor(Math.random() * n));
 // const intArr = makeArr(25000);
@@ -34,3 +35,16 @@ const target = 9;
 // console.log("getName" in sin5);
 // console.log("shoutName" in sin5); // --> false --> The extension process can't even start, because SingletonClass constructor returns the instance first thing.
 // console.log('Ext_Sin_2', sin5.getName(), sin6.getName(), sin5 === sin6);
+
+
+const myFun = (a,b,c,d) => console.log(a,b,c,d);
+const car = curry_0(myFun);
+
+console.time('curry');
+car('a','b','c', 'd');
+car('a','b')('c', 'd');
+car('a')('b','c', 'd');
+car('a','b')('c')('d');
+car('a')('b','c')('d');
+car('a')('b')('c')('d');
+console.timeEnd('curry');
