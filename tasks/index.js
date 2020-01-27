@@ -3,6 +3,15 @@ const { bubbleSort, gnomeSort, insertionSort } = require('./sorting');
 const { isAnagram_1, isAnagram_2, isAnagram_3, isAnagram_4 } = require('./isAnagram');
 const { Singleton_1, Singleton_2, Ext_Sin_2 } = require('./singleton');
 const { curry_0, curry_1, curry_2 } = require('./curry');
+const { fibo_0, fibo_1 } = require('./fibonacci');
+const { fac_0, fac_1 } = require('./factorial');
+// require('./trainings');
+// require('./eventEmitter');
+// require('./unicArr');
+// require('./isSorted');
+// require('./customBind');
+// require('./deepFreeze');
+require('./objectComparison');
 
 // const makeArr = n => Array.from({length: n}, () => Math.floor(Math.random() * n));
 // const intArr = makeArr(25000);
@@ -37,14 +46,18 @@ const target = 9;
 // console.log('Ext_Sin_2', sin5.getName(), sin6.getName(), sin5 === sin6);
 
 
-const myFun = (a,b,c,d) => console.log(a,b,c,d);
-const car = curry_0(myFun);
+// const myFun = (a,b,c,d) => console.log(a,b,c,d);
+// const car = curry_0(myFun);
+//
+// console.time('curry');
+// car('a','b','c', 'd');
+// car('a','b')('c', 'd');
+// car('a')('b','c', 'd');
+// car('a','b')('c')('d');
+// car('a')('b','c')('d');
+// car('a')('b')('c')('d');
+// console.timeEnd('curry');
 
-console.time('curry');
-car('a','b','c', 'd');
-car('a','b')('c', 'd');
-car('a')('b','c', 'd');
-car('a','b')('c')('d');
-car('a')('b','c')('d');
-car('a')('b')('c')('d');
-console.timeEnd('curry');
+// console.log('fibo', fibo_1(28));
+// console.log('factorial', fac_0(17));
+// console.log('factorial', fac_1(17));

@@ -6,7 +6,7 @@ const bind = function(fn, context, args1) {
     return fn.apply(context, args1.concat(args2));
   };
 };
-
+// best one:
 const curry_0 = function(fn) {
   return function() {
     if(arguments.length < fn.length) return curry_0(fn.bind(this, ...arguments));
